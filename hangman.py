@@ -39,7 +39,6 @@ def show_word():
     if word[0] == "":
         get_word()
     print("Word:")
-    print("\n")
     for i in word[0]:
         if i.lower() not in lettersused:
             print("_", end = "")

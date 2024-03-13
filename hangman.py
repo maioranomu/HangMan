@@ -3,11 +3,40 @@ import random
 import os
 import time
 
-attempts = 6
 game = True
 wordtheme = None
 word = [""]
 lettersused = []
+difficulty = ""
+
+def ask_difficulty():
+    global difficulty
+    global attempts
+    global maxattempts
+    difficultylist = ["1", "2", "3"]
+    if difficulty == "":
+        
+        while difficulty not in difficultylist:
+            
+            difficulty = input("What difficulty would you like to play? [1 | 2 | 3] ")
+            if difficulty == "1":
+                attempts = 10
+                maxattempts = attempts
+            elif difficulty == "2":
+                attempts = 6
+                maxattempts = attempts
+            elif difficulty == "3":
+                attempts = 2
+                maxattempts = attempts
+
+
+def attemptpercentage():
+    global attempts
+    global maxattempts
+    percentage = (attempts/maxattempts)*100
+    return percentage
+
+
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -32,6 +61,7 @@ def check_attempts():
         hang_man()
         print(f"You have {attempts} attempts left. GAME OVER")
         print(f"The word was {word[0]}!")
+        print("\n")
         game_over()
 
 def show_word():
@@ -68,15 +98,26 @@ def game_over():
     global word
     global lettersused
     global game
+    global difficulty
     global attempts
-    again = input("Do you want to play again? [y/n]: ").lower()
+    again = " "
+    againlist = ["", "c", "q"]
     word[0] = ""
     lettersused = []
-    if again == "n":
-        game = False
-    else:
-        attempts = 6
+    
+    while again not in againlist:
+        again = input("[PRESS ENTER TO CONTINUE] [PRESS C TO CHANGE DIFFICULTY] [PRESS Q TO QUIT]").lower()
 
+    if again == "":
+        attempts = maxattempts
+        
+    elif again == "q":
+        game = False
+        
+    elif again == "c":
+        clear_screen()
+        difficulty = ""
+        ask_difficulty()
 
 def check_if_won():
     global game
@@ -93,6 +134,7 @@ def check_if_won():
                 clear_screen()
                 print("You Won!")
                 print(f"The Word was {word[0]}")
+                print("\n")
                 print(r"""
                         😎/  
                         /|
@@ -156,7 +198,7 @@ def hang_man():
                 
 """)
     elif attempts == 2:
-        print("""
+        print(r"""
           
             ------|
             |     |
@@ -170,7 +212,7 @@ def hang_man():
 """)
 
     elif attempts == 1:
-        print("""
+        print(r"""
           
             ------|
             |     |
@@ -183,7 +225,7 @@ def hang_man():
                 
 """)
     elif attempts == 0:
-        print("""
+        print(r"""
           
             ------|
             |     |
@@ -194,10 +236,25 @@ def hang_man():
             |
             |     
                 
+""")
+    else:
+        print(r"""
+            
+            ------|
+            |     |
+            |     |
+            |    🙂
+            |    /|\
+            |    / \
+            |
+            |     
+                
 """)                
 
 
 def game():
+    clear_screen()
+    ask_difficulty()
     clear_screen()
     show_word()
     # print(word[0])

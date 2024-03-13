@@ -16,7 +16,7 @@ def get_word():
     global wordtheme
     global lettersused
     global word
-    wordlist = pd.read_csv("Codes/PY/HangMan/wordlistbr.csv")
+    wordlist = pd.read_csv("PROJECTS\HangMan\wordlistbr.csv")
     wordindex = random.randint(0, len(wordlist) - 1)
     currentword = wordlist.iloc[wordindex, 0]
     wordtheme = wordlist.iloc[wordindex, 1]
@@ -49,7 +49,8 @@ def show_word():
     print("\n")
     print(f"Theme: {word[1]}")
     print("\n")
-    print(f"Letters used: {lettersused}")
+    capitallettersused = [char.upper() for char in lettersused]
+    print(f"Letters used: {("  ".join(capitallettersused))}")
 
 def get_try():
     loss = False

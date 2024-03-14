@@ -37,7 +37,6 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def get_word():
-    global wordtheme
     global lettersused
     global word
     wordlist = pd.read_csv(listpath)
@@ -79,7 +78,7 @@ def show_word():
     print("\n")
 
 def get_try():
-    loss = False
+
     guess = input("Guess a letter: ").lower()
     while guess in lettersused or len(guess) > 1 or guess == "":
         guess = input("Guess another letter: ")

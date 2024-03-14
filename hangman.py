@@ -33,14 +33,6 @@ def ask_difficulty():
                 maxattempts = attempts
 
 
-def attemptpercentage():
-    global attempts
-    global maxattempts
-    percentage = (attempts/maxattempts)*100
-    return percentage
-
-
-
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 

@@ -144,112 +144,114 @@ def hang_man():
     attemptsafter6 = attempts - 6
     printextra = "*" * attemptsafter6
     
-    if attempts > 6:
+    if attempts > 6: #🙂
         print(r"""
-          
-            ------|
-            |     |
-            |     |     {0}
-            |    🙂
-            |    /|\
-            |    / \
+              
+            _________
+            | /     |    
+            |/      |
+            |      🙂  {0}
+            |      /|\
+            |      / \     
+            |          
             |
-            |     
-                
+                          
 """.format(printextra))
         
-    elif attempts == 6:
+    elif attempts == 6: #🙂
         print(r"""
-          
-            ------|
-            |     |
-            |     |
-            |    🙂
-            |    /|\
-            |    / \
+              
+            _________
+            | /     |    
+            |/      |
+            |      🙂
+            |      /|\
+            |      / \     
+            |          
             |
-            |     
+                 
+""")
+    elif attempts == 5: #🙁
+        print(r""" 
+              
+            _________
+            | /     |    
+            |/      |
+            |      🙁 
+            |      /|\
+            |      /   
+            |          
+            |
                 
 """)
-    elif attempts == 5:
+    elif attempts == 4: #😥
         print(r"""
-          
-            ------|
-            |     |
-            |     |
-            |    🙁
-            |    /|\
-            |    / 
+              
+            _________
+            | /     |    
+            |/      |
+            |      😥 
+            |      /|\
+            |      
+            |          
             |
-            |     
-                
+        
 """)
-    elif attempts == 4:
+    elif attempts == 3: #😓
         print(r"""
-          
-            ------|
-            |     |
-            |     |
-            |    😥
-            |    /|\
-            |    
+              
+            _________
+            | /     |    
+            |/      |
+            |      😓 
+            |      /|
+            |        
+            |          
             |
-            |     
-                
+         
 """)
-    elif attempts == 3:
+    elif attempts == 2: #😰
         print(r"""
-          
-            ------|
-            |     |
-            |     |
-            |    😓
-            |    /|
-            |    
+              
+            _________
+            | /     |    
+            |/      |
+            |      😰 
+            |       |
+            |        
+            |          
             |
-            |     
-                
-""")
-    elif attempts == 2:
-        print(r"""
           
-            ------|
-            |     |
-            |     |
-            |    😰
-            |     |
-            |    
-            |
-            |     
-                
 """)
 
-    elif attempts == 1:
+    elif attempts == 1: #😨
         print(r"""
-          
-            ------|
-            |     |
-            |     |
-            |    😨
-            |    
-            |     
+              
+            _________
+            | /     |    
+            |/      |
+            |      😨 
+            |      
+            |        
+            |          
             |
-            |     
-                
+         
 """)
-    elif attempts == 0:
+    elif attempts == 0: #💀
         print(r"""
           
-            ------|
-            |     |
-            |     |
-            |     
-            |    
-            |    
+              
+            _________
+            | /     |    
+            |/      |
+            |      
+            |      
+            |       
+            |          
             |
-            |     💀 
+                   💀 
             
-               Game Over!
+                Game Over!
                 
 """)
     else:

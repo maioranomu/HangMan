@@ -4,7 +4,7 @@ import os
 import time
 
 language = "BR"
-listpath = f"HangMan\wordlists\wordlist{language}.csv"
+listpath = f"PROJECTS\HangMan\wordlists\wordlist{language}.csv"
 
 game = True
 wordtheme = None
@@ -49,9 +49,7 @@ def get_word():
 def check_attempts():
     global attempts
     attempts -= 1
-    if attempts > 0:
-        print(f"You have {attempts} attempts left")
-    elif attempts == 0:
+    if attempts == 0:
         clear_screen()
         hang_man()
         print(f"You have {attempts} attempts left.")
@@ -276,7 +274,7 @@ def game():
     ask_difficulty()
     clear_screen()
     hang_man()
-    print(word[0])
+    # print(word[0])
     get_try()
     check_if_won()
     time.sleep(0.2)

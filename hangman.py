@@ -237,7 +237,7 @@ def hang_man():
             |
          
 """)
-    elif attempts == 0: #💀
+    elif attempts <= 0: #💀
         print(r"""
           
               

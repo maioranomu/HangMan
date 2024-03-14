@@ -4,7 +4,7 @@ import os
 import time
 
 language = "BR"
-listpath = f"PROJECTS\HangMan\wordlists\wordlist{language}.csv"
+listpath = f"HangMan\wordlists\wordlist{language}.csv"
 
 game = True
 wordtheme = None

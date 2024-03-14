@@ -4,7 +4,7 @@ import os
 import time
 
 language = "BR"
-listpath = f"PROJECTS\HangMan\wordlists\wordlist{language}.csv"
+listpath = f"E:\Importante\Codes\MyCodes\PY\PROJECTS\HangMan\wordlists\wordlist{language}.csv"
 
 game = True
 wordtheme = None
@@ -16,20 +16,25 @@ def ask_difficulty():
     global difficulty
     global attempts
     global maxattempts
-    difficultylist = ["1", "2", "3"]
+    difficultylist = ["1", "2", "3", "4"]
     if difficulty == "":
         
         while difficulty not in difficultylist:
-            
-            difficulty = input("What difficulty would you like to play? [1 | 2 | 3] ")
+            clear_screen()
+            difficulty = input(f"""What difficulty would you like to play?  [1 | 2 | 3 | 4] 
+                                          (10, 8, 6, 1)\n
+                               """)
             if difficulty == "1":
                 attempts = 10
                 maxattempts = attempts
             elif difficulty == "2":
-                attempts = 6
+                attempts = 8
                 maxattempts = attempts
             elif difficulty == "3":
-                attempts = 2
+                attempts = 6
+                maxattempts = attempts
+            elif difficulty == "4":
+                attempts = 1
                 maxattempts = attempts
 
 
@@ -82,6 +87,8 @@ def get_try():
     guess = input("Guess a letter: ").lower()
     while guess in lettersused or len(guess) > 1 or guess == "":
         guess = input("Guess another letter: ")
+        
+    
     lettersused.append(guess)
     if guess.lower() not in word[0].lower():
         check_attempts()
@@ -264,7 +271,7 @@ def game():
     # print(word[0])
     get_try()
     check_if_won()
-    time.sleep(0.2)
+    time.sleep(0.1)
     clear_screen()
 
 

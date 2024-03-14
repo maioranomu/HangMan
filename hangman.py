@@ -13,7 +13,7 @@ game = True
 wordtheme = None
 word = [""]
 lettersused = []
-difficulty = "3"
+difficulty = ""
 
 
 
@@ -173,9 +173,7 @@ def game_over():
                     print("Wins:", wins)
         input("")
         attempts = maxattempts
-        
-
-            
+               
 
 def check_if_won():
     global game
@@ -403,11 +401,6 @@ def game_over():
         input("")  
         attempts = maxattempts
 
-           
-        
-
-            
-
 def check_if_won():
     global game
     global name
@@ -459,13 +452,11 @@ def hang_man():
             
     show_word()
 
-
-
-
-
-
 def game():
+    clear_screen()
+    
     ask_difficulty()
+    game_over()
     clear_screen()
     
     while game:

@@ -3,6 +3,9 @@ import random
 import os
 import time
 
+language = "BR"
+listpath = f"PROJECTS\HangMan\wordlists\wordlist{language}.csv"
+
 game = True
 wordtheme = None
 word = [""]
@@ -45,7 +48,7 @@ def get_word():
     global wordtheme
     global lettersused
     global word
-    wordlist = pd.read_csv("PROJECTS\HangMan\wordlistbr.csv")
+    wordlist = pd.read_csv(listpath)
     wordindex = random.randint(0, len(wordlist) - 1)
     currentword = wordlist.iloc[wordindex, 0]
     wordtheme = wordlist.iloc[wordindex, 1]
@@ -80,6 +83,7 @@ def show_word():
     print(f"Theme: {word[1]}")
     print("\n")
     capitallettersused = [char.upper() for char in lettersused]
+    print(f"Attempts left: {attempts}")
     print(f"Letters used: {("  ".join(capitallettersused))}")
 
 def get_try():
@@ -145,7 +149,24 @@ def check_if_won():
 
 def hang_man():
     global attempts
-    if attempts == 6:
+    attemptsafter6 = attempts - 6
+    printextra = "*" * attemptsafter6
+    
+    if attempts > 6:
+        print(r"""
+          
+            ------|
+            |     |
+            |     |     {0}
+            |    🙂
+            |    /|\
+            |    / \
+            |
+            |     
+                
+""".format(printextra))
+        
+    elif attempts == 6:
         print(r"""
           
             ------|
@@ -250,6 +271,7 @@ def hang_man():
             |     
                 
 """)                
+
 
 
 def game():

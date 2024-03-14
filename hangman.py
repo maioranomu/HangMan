@@ -49,6 +49,7 @@ def get_word():
 def check_attempts():
     global attempts
     attempts -= 1
+
     if attempts == 0:
         clear_screen()
         hang_man()
@@ -101,7 +102,7 @@ def game_over():
     lettersused = []
     
     while again not in againlist:
-        again = input("[PRESS ENTER TO CONTINUE] [PRESS C TO CHANGE DIFFICULTY] [PRESS Q TO QUIT]").lower()
+        again = input("[PRESS ENTER TO CONTINUE] [PRESS C TO CHANGE DIFFICULTY] [PRESS Q TO QUIT]\n").lower()
 
     if again == "":
         attempts = maxattempts

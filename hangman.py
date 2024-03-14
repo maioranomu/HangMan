@@ -54,7 +54,7 @@ def check_attempts():
     elif attempts == 0:
         clear_screen()
         hang_man()
-        print(f"You have {attempts} attempts left. GAME OVER")
+        print(f"You have {attempts} attempts left.")
         print(f"The word was {word[0]}!")
         print("\n")
         game_over()
@@ -247,7 +247,9 @@ def hang_man():
             |    
             |    
             |
-            |     
+            |     💀 
+            
+               Game Over!
                 
 """)
     else:

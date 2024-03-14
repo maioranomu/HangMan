@@ -2,6 +2,7 @@ import pandas as pd
 import random
 import os
 import time
+from hangsprites.hangdict import greater_6, sprites
 
 language = "BR"
 listpath = f"E:\Importante\Codes\MyCodes\PY\PROJECTS\HangMan\wordlists\wordlist{language}.csv"
@@ -137,12 +138,7 @@ def check_if_won():
             print("You Won!")
             print(f"The Word was {word[0]}")
             print("\n")
-            print(r"""
-                    😎/  
-                    /|
-                    / \
-                    
-                    """)
+            print(sprites["10"])
             game_over()    
 
 def hang_man():
@@ -150,116 +146,30 @@ def hang_man():
     attemptsafter6 = attempts - 6
     printextra = "*" * attemptsafter6
     
-    if attempts > 6: #🙂
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      🙂  {0}
-            |      /|\
-            |      / \     
-            |          
-            |
-                          
-""".format(printextra))
+    if attempts > 6: #😁
+        greater_6(printextra)
         
     elif attempts == 6: #🙂
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      🙂
-            |      /|\
-            |      / \     
-            |          
-            |
-                 
-""")
-    elif attempts == 5: #🙁
-        print(r""" 
-              
-            _________
-            | /     |    
-            |/      |
-            |      🙁 
-            |      /|\
-            |      /   
-            |          
-            |
-                
-""")
-    elif attempts == 4: #😥
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      😥 
-            |      /|\
-            |      
-            |          
-            |
+        print(sprites["6"])
         
-""")
+    elif attempts == 5: #🙁
+        print(sprites["5"])
+        
+    elif attempts == 4: #😥
+        print(sprites["4"])
+        
     elif attempts == 3: #😓
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      😓 
-            |      /|
-            |        
-            |          
-            |
-         
-""")
+        print(sprites["3"])
+        
     elif attempts == 2: #😰
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      😰 
-            |       |
-            |        
-            |          
-            |
-          
-""")
-
+        print(sprites["2"])
+        
     elif attempts == 1: #😨
-        print(r"""
-              
-            _________
-            | /     |    
-            |/      |
-            |      😨 
-            |      
-            |        
-            |          
-            |
-         
-""")
+        print(sprites["1"])      
+        
     elif attempts <= 0: #💀
-        print(r"""
-          
-              
-            _________
-            | /     |    
-            |/      |
-            |      
-            |      
-            |       
-            |          
-            |
-                   💀 
+        print(sprites["0"])       
             
-                Game Over!
-                
-""")            
     show_word()
 
 

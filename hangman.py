@@ -253,20 +253,7 @@ def hang_man():
             
                 Game Over!
                 
-""")
-    else:
-        print(r"""
-            
-            ------|
-            |     |
-            |     |
-            |    🙂
-            |    /|\
-            |    / \
-            |
-            |     
-                
-""")                
+""")            
     show_word()
 
 

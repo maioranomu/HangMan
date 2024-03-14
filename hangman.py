@@ -77,6 +77,7 @@ def show_word():
     capitallettersused = [char.upper() for char in lettersused]
     print(f"Attempts left: {attempts}")
     print(f"Letters used: {("  ".join(capitallettersused))}")
+    print("\n")
 
 def get_try():
     loss = False
@@ -122,22 +123,22 @@ def check_if_won():
     global lettersused
     global points
     global attempts
-    points = 1
+    points = 0
     for i in word[0]:
-        if i in lettersused:
+        if i.lower() in lettersused:
             points += 1
-            if points == len(word[0]):
-                clear_screen()
-                print("You Won!")
-                print(f"The Word was {word[0]}")
-                print("\n")
-                print(r"""
-                        😎/  
-                        /|
-                        / \
-                      
-                        """)
-                game_over()    
+        if points == len(word[0]):
+            clear_screen()
+            print("You Won!")
+            print(f"The Word was {word[0]}")
+            print("\n")
+            print(r"""
+                    😎/  
+                    /|
+                    / \
+                    
+                    """)
+            game_over()    
 
 def hang_man():
     global attempts
@@ -267,16 +268,15 @@ def hang_man():
             |     
                 
 """)                
-
+    show_word()
 
 
 def game():
     clear_screen()
     ask_difficulty()
     clear_screen()
-    show_word()
-    # print(word[0])
     hang_man()
+    print(word[0])
     get_try()
     check_if_won()
     time.sleep(0.2)

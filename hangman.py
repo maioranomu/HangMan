@@ -5,8 +5,8 @@ import time
 from hangsprites.hangdict import greater_6, sprites
 
 language = "BR"
-listpath = f"E:\Importante\Codes\MyCodes\PY\PROJECTS\HangMan\wordlists\wordlist{language}.csv"
-datapath = "E:\Importante\Codes\MyCodes\PY\PROJECTS\HangMan\data\data.txt"
+listpath = f"wordlists\wordlist{language}.csv"
+datapath = "data\data.txt"
 losses = 0
 wins = 0
 game = True
